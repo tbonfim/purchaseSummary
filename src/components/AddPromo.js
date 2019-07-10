@@ -16,6 +16,7 @@ class AddPromo extends React.Component {
 
   applyPromo = () => {
     this.props.applyPromo(this.state.promoCode);
+    this.setState({ promoCode: '' });
   }
 
   render () {

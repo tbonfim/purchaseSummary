@@ -16,10 +16,13 @@ const initialState = {
 };
 
 export const reducer = (state = initialState, action) =>{
-  let updatedState = state;
+  let updatedState = {...state};
+  let newPricing = {...state.pricing};
+  
   switch(action.type) {
     case 'APPLY_DISCOUNT':
-      updatedState.pricing.total *= 0.9;
+      newPricing.total *= 0.9;
+      updatedState.pricing = newPricing
       return updatedState;
     case 'GET_ORDER_SUMMARY':
       updatedState = action.orderSummary;

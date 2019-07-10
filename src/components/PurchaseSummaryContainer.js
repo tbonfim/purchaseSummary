@@ -7,7 +7,7 @@ import AddPromo from './AddPromo';
 import { connect } from 'react-redux';
 import { applyDiscount, getOrderSummary } from '../redux/actions';
 
-class PurchaseSummary extends React.Component {
+class PurchaseSummaryContainer extends React.Component {
 
   componentDidMount() {
     this.props.getOrderSummary();
@@ -19,10 +19,9 @@ class PurchaseSummary extends React.Component {
     }
   }
   render () {
-    console.log(this.props.pricing);
     return( 
       <div className='purchaseSummary'>
-        <OrderSummary />
+        <OrderSummary orderSummary={this.props.pricing}/>
         <CollapsePanel openText='Hide Item Details' closedText='Show Item Details' component={<ItemDetails itemDetails={this.props.itemDetails}/>}/>
         <CollapsePanel openText='Hide Promo Code' closedText='Apply Promo Code' component={<AddPromo applyPromo={this.applyPromo}/>}/>
       </div>
@@ -41,4 +40,4 @@ const mapDispatchToProps = {
   getOrderSummary
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(PurchaseSummary);
+export default connect(mapStateToProps, mapDispatchToProps)(PurchaseSummaryContainer);

@@ -1,8 +1,6 @@
 import React from 'react';
 import DetailsModal from './DetailsModal';
 
-import { connect } from 'react-redux';
-
 class OrderSummary extends React.Component {
   constructor() {
     super();
@@ -15,9 +13,9 @@ class OrderSummary extends React.Component {
   toggleDetailsModal = ()=>{  
     this.setState({ isOpen: !this.state.isOpen});
   }
+
   render () {
-    const {orderSummary} = this.props;
-    
+    const { orderSummary } = this.props;
     return (
       <div className="orderSummary">
         <div className="orderSummary-subtotal">
@@ -45,11 +43,4 @@ class OrderSummary extends React.Component {
     );
   }
 }
-
-const mapStateToProps = (state) => {
-  return {
-    orderSummary: state.pricing
-  };
-}
-
-export default connect(mapStateToProps)(OrderSummary);
+export default OrderSummary;
