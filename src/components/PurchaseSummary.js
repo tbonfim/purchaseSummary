@@ -4,37 +4,40 @@ import CollapsePanel from './CollapsePanel';
 import ItemDetails from './ItemDetails';
 import AddPromo from './AddPromo';
 
-export default class PurchaseSummary extends React.Component {
+import { connect } from 'react-redux';
+import { applyDiscount, getOrderSummary } from '../redux/actions';
+
+class PurchaseSummary extends React.Component {
 
   componentDidMount() {
-    // this.props.getPurchaseSummaryDispatcher();
+    this.props.getOrderSummary();
+  }
+
+  applyPromo (promoCode) {
+    if(promoCode === 'DISCOUNT'){
+      this.props.applyDiscount();
+    }
   }
   render () {
-    this.state = {
-      pricing: {
-        subtotal: 102.96,
-        savings: 3.85,
-        tax: 8.92,
-        total: 108.03,
-        zip: 85050
-      },
-      itemDetails:{
-        item_name: "Essentials by OFM ESS-3085 Raving Style Leather Gaming Chair, Red",
-        quantity: 1,
-        price: 99.11,
-        fullPrice: 102.96,
-        image: "https://i5.walmartimages.com/asr/e73e1252-642c-4473-93ea-fd3b564a7027_1.3e81ea58fa3042452fe185129a4a865f.jpeg?odnHeight=100&amp;odnWidth=100&amp;odnBg=FFFFFF"
-      }
-    };
-
-    const {itemDetails, pricing} = this.state;
-    // console.log(pricing);
-  return( 
-      <div className="purchaseSummary">
-        <OrderSummary orderSummary={pricing}/>
-        <CollapsePanel container={<ItemDetails itemDetails={itemDetails}/>}/>
-        <CollapsePanel container={<AddPromo />}/>
+    return( 
+      <div className='purchaseSummary'>
+        <OrderSummary />
+        <CollapsePanel container={<ItemDetails itemDetails={this.props.itemDetails}/>}/>
+        <CollapsePanel container={<AddPromo applyPromo={this.applyPromo}/>}/>
       </div>
     );
   }
 };
+
+const mapStateToProps = (state) => {
+  return {
+    itemDetails: state.itemDetails,
+    pricing: state.pricing
+  };
+}
+const mapDispatchToProps = {
+  applyDiscount,
+  getOrderSummary
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(PurchaseSummary);

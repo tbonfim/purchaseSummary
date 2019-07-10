@@ -1,7 +1,6 @@
 import React from 'react';
 
 export default ({open}) => {
-  console.log(open)
   return ( <div aria-hidden={open} className={ open ? 'detailsModal': 'hidden'}> 
     Picking up your order in the store helps cut costs, and we pass the savings to you.
   </div>);

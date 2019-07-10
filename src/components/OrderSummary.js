@@ -1,7 +1,9 @@
 import React from 'react';
 import DetailsModal from './DetailsModal';
 
-export default class OrderSummary extends React.Component {
+import { connect } from 'react-redux';
+
+class OrderSummary extends React.Component {
   constructor() {
     super();
     
@@ -15,7 +17,7 @@ export default class OrderSummary extends React.Component {
   }
   render () {
     const {orderSummary} = this.props;
-    // TODO: componetize line items.
+    
     return (
       <div className="orderSummary">
         <div className="orderSummary-subtotal">
@@ -43,3 +45,11 @@ export default class OrderSummary extends React.Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    orderSummary: state.pricing
+  };
+}
+
+export default connect(mapStateToProps)(OrderSummary);
