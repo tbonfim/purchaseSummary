@@ -13,17 +13,18 @@ class PurchaseSummary extends React.Component {
     this.props.getOrderSummary();
   }
 
-  applyPromo (promoCode) {
+  applyPromo = (promoCode) => {
     if(promoCode === 'DISCOUNT'){
       this.props.applyDiscount();
     }
   }
   render () {
+    console.log(this.props.pricing);
     return( 
       <div className='purchaseSummary'>
         <OrderSummary />
-        <CollapsePanel container={<ItemDetails itemDetails={this.props.itemDetails}/>}/>
-        <CollapsePanel container={<AddPromo applyPromo={this.applyPromo}/>}/>
+        <CollapsePanel openText='Hide Item Details' closedText='Show Item Details' component={<ItemDetails itemDetails={this.props.itemDetails}/>}/>
+        <CollapsePanel openText='Hide Promo Code' closedText='Apply Promo Code' component={<AddPromo applyPromo={this.applyPromo}/>}/>
       </div>
     );
   }

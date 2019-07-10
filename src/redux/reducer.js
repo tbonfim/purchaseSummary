@@ -7,11 +7,11 @@ const initialState = {
     zip: 0
   },
   itemDetails:{
-    item_name: "",
+    item_name: '',
     quantity: 0,
     price: 0,
     fullPrice: 0,
-    image: ""
+    image: ''
   }
 };
 
@@ -19,7 +19,7 @@ export const reducer = (state = initialState, action) =>{
   let updatedState = state;
   switch(action.type) {
     case 'APPLY_DISCOUNT':
-      updatedState.pricing.total *= 0.9;  
+      updatedState.pricing.total *= 0.9;
       return updatedState;
     case 'GET_ORDER_SUMMARY':
       updatedState = action.orderSummary;
