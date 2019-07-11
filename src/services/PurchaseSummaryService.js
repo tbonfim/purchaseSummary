@@ -9,7 +9,7 @@ const response = {
   itemDetails:{
     item_name: 'Essentials by OFM ESS-3085 Raving Style Leather Gaming Chair, Red',
     quantity: 1,
-    image: 'https://i5.walmartimages.com/asr/e73e1252-642c-4473-93ea-fd3b564a7027_1.3e81ea58fa3042452fe185129a4a865f.jpeg?odnHeight=100&odnWidth=100&odnBg=FFFFFF',
+    image: 'https://i5.walmartimages.com/asr/e73e1252-642c-4473-93ea-fd3b564a7027_1.3e81ea58fa3042452fe185129a4a865f.jpeg?odnHeight=55&odnWidth=55&odnBg=FFFFFF',
     price: 99.11,
     fullPrice: 102.96
   }

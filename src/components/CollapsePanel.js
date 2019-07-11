@@ -18,7 +18,7 @@ class CollapsePanel extends React.Component  {
     return ( 
       <div className="collapsePanel">
         <div className="collapseHeader" onClick={this.toggle}>
-          <span className="collapseHeaderTitle">{open ? openText: closedText}</span> 
+          <a className="collapseHeaderTitle">{open ? openText: closedText}</a> 
           <span className="collapseHeaderIcon">{open ? '-' : '+'}</span>
         </div>
         { open && <div className="collapseContent">{component}</div>}

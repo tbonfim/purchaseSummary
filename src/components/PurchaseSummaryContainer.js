@@ -20,7 +20,7 @@ class PurchaseSummaryContainer extends React.Component {
   }
   render () {
     return( 
-      <div className='purchaseSummary'>
+      <div className='purchaseSummary boxShadow'>
         <OrderSummary orderSummary={this.props.pricing}/>
         <CollapsePanel openText='Hide Item Details' closedText='Show Item Details' component={<ItemDetails itemDetails={this.props.itemDetails}/>}/>
         <CollapsePanel openText='Hide Promo Code' closedText='Apply Promo Code' component={<AddPromo applyPromo={this.applyPromo}/>}/>

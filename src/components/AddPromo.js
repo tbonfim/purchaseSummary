@@ -23,10 +23,8 @@ class AddPromo extends React.Component {
     return ( 
       <div className='addPromoContainer'>
         <span>Promo code</span>
-        <fieldset>
-          <input type='text' className="promoCodeInput" value={this.state.promoCode} onChange={this.handleChange}/>
-          <a className='applyPromoButton' onClick={this.applyPromo}>Apply</a>
-        </fieldset>
+        <input type='text' className="promoCodeInput" value={this.state.promoCode} onChange={this.handleChange}/>
+        <a className='applyPromoButton' onClick={this.applyPromo}>Apply</a>
       </div>
     );
   }

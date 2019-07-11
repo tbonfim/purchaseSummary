@@ -20,23 +20,23 @@ class OrderSummary extends React.Component {
       <div className="orderSummary">
         <div className="orderSummary-subtotal">
           <span>Subtotal:</span>
-          <span>{orderSummary.subtotal}</span>
+          <span className="text-right">${orderSummary.subtotal.toFixed(2)}</span>
         </div>
 
         <div className="orderSummary-savings">
           <a href="#" onClick={ this.toggleDetailsModal }>Pickup savings:</a>
           <DetailsModal open={this.state.isOpen}/>
-          <span>{orderSummary.savings}</span>
+          <span className="text-right">-${orderSummary.savings.toFixed(2)}</span>
         </div>
           
         <div className="orderSummary-taxes">
           <span>Est. Taxes & Fees <br />(based on {orderSummary.zip}) </span>
-          <span>{orderSummary.tax}</span>
+          <span className="text-right">${orderSummary.tax.toFixed(2)}</span>
         </div>
         
         <div className="orderSummary-total">
           <span>Est. Total</span>
-          <span>{orderSummary.total}</span>
+          <span className="text-right">${orderSummary.total.toFixed(2)}</span>
         </div>
         
       </div>
